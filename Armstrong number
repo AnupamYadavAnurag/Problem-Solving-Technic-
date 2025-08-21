@@ -1,0 +1,36 @@
+# without using loop
+
+n = 153
+digits = len(str(n))
+arm = sum(int(digit) ** digits for digit in str(n))
+
+if n == arm:
+    print(n, "is an Armstrong number")
+else:
+    print(n, "is not an Armstrong number")
+
+
+#Using def function
+
+def power(x, y):
+    if y == 0:
+        return 1
+    return x * power(x, y - 1)
+
+def is_armstrong(num, digits=None):
+    if digits is None:
+        digits = len(str(num))
+    if num == 0:
+        return 0
+    return power(num % 10, digits) + is_armstrong(num // 10, digits)
+
+# Example
+n = 153
+if n == is_armstrong(n):
+    print(n, "is an Armstrong number")
+else:
+    print(n, "is not an Armstrong number")
+
+
+
+# simple way 
